@@ -1,0 +1,60 @@
+<%- include('../partials/header')%>
+
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h1>Lista de Produtos</h1>
+                </div>
+                <div class="col-6">
+                    <a class="btn btn-primary" href="/cadastroProduto">Inserir novos produtos</a>
+                    <a href="/" class="btn btn-success">Voltar</a>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade em estoque</th>
+                        <th>Valor unitário</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% mercado.forEach(function(produto){%>
+                        <tr>
+                            <td>
+                                <%= produto.nome_produto %>
+                            </td>
+                            <td>
+                                <%= produto.quantidade %>
+                            </td>
+                            <td>
+                                <%= produto.valor_unitario %>
+                            </td>
+                            <td>
+                                <%= produto.fornecedor %>
+                            </td>
+                            <td>
+                                <a href="/editarProduto/<%= produto.id_produto%>" class="btn btn-warning">Editar</a>
+                                <a href="/deletarProduto/<%= produto.id_produto%>" class="btn btn-danger">Deletar</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>          
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer')%>
